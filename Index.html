@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Is It Your Passion?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    .passion-of-week {
+      background: #eaf6ff;
+      padding: 15px;
+      border-left: 5px solid #3498db;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      resize: vertical;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    #feedback {
+      margin-top: 20px;
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Is It Your Passion?</h1>
+    <p>Share your passion and see what others love!</p>
+  </header>
+
+  <section class="passion-of-week">
+    <h2>Passion of the Week</h2>
+    <p><strong>Storytelling:</strong> Bringing stories to life with imagination and emotion.</p>
+  </section>
+
+  <section>
+    <h2>Tell Us Your Passion</h2>
+    <form id="passionForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+      
+      <label for="passion">Your Passion</label>
+      <textarea id="passion" rows="4" placeholder="Describe your passion" required></textarea>
+      
+      <button type="submit">Share</button>
+    </form>
+    <div id="feedback"></div>
+  </section>
+
+  <script>
+    const form = document.getElementById('passionForm');
+    const feedback = document.getElementById('feedback');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const passion = document.getElementById('passion').value.trim();
+
+      if(name && passion) {
+        feedback.textContent = `Thanks, ${name}! Your passion for "${passion}" is awesome!`;
+        form.reset();
+      } else {
+        feedback.textContent = 'Please fill in both fields.';
+      }
+    });
+  </script>
+</body>
+</html>
